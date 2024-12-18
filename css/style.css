@@ -385,7 +385,7 @@ button:hover{
 }
 
 .three-d {
-    box-shadow: 10px 10px #f9c710;
+    box-shadow: -10px 10px #f9c710;
 }
 
 #letters button {
@@ -440,3 +440,11 @@ button:hover{
 }
 
 /* kmom06 styling ends */
+
+/** kmom10 styling starts here */
+
+
+
+
+
+/* kmom10 styling ends */

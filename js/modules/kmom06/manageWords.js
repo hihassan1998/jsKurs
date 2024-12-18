@@ -2,7 +2,7 @@
  * Hantera ordlistan och tillhandahålla slumpmässiga ord för spelet.
  * - Laddar ord från en extern JSON-fil.
  * - Hämtar ett slumpmässigt ord från listan.
- * @module kmom06/wordManager
+ * @module kmom06/manageWords
  * @returns {object} Funktioner för att hantera ordlistan.
  */
 const wordManager = (() => {

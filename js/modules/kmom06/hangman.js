@@ -1,5 +1,5 @@
 /**
- * @module hangman
+ * @module kmom06/hangman
  */
 
 const hangman = {

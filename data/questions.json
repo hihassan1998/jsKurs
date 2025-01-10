@@ -1,0 +1,30 @@
+{
+    "questions": [
+      {
+        "question": "What is the capital of France?",
+        "options": ["Berlin", "Madrid", "Paris"],
+        "answer": "Paris"
+      },
+      {
+        "question": "Which planet is known as the Red Planet?",
+        "options": ["Earth", "Mars", "Jupiter"],
+        "answer": "Mars"
+      },
+      {
+        "question": "What is the largest mammal?",
+        "options": ["Elephant", "Blue Whale", "Giraffe"],
+        "answer": "Blue Whale"
+      },
+      {
+        "question": "Which element has the chemical symbol O?",
+        "options": ["Gold", "Oxygen", "Iron"],
+        "answer": "Oxygen"
+      },
+      {
+        "question": "Who wrote 'Romeo and Juliet'?",
+        "options": ["Charles Dickens", "William Shakespeare", "Mark Twain"],
+        "answer": "William Shakespeare"
+      }
+    ]
+  }
+  

@@ -373,9 +373,9 @@ button {
     border: 2px solid #333;
 }
 
-button:hover{
+button:hover {
     cursor: pointer;
-    translate: -5px 5px ;
+    translate: -5px 5px;
 }
 
 .borders {
@@ -422,10 +422,11 @@ button:hover{
         align-items: center;
     }
 
-    h1{
+    h1 {
         word-break: break-word;
 
     }
+
     h2 {
         font-size: 2rem;
         word-break: break-word;
@@ -444,7 +445,39 @@ button:hover{
 /** kmom10 styling starts here */
 
 
+.hidden {
+    display: none !important;
+}
 
+.deltest {
+    display: none;
+}
 
+.active-test {
+display: block;
+}
+
+.button-tst {
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+}
+
+/* menu stylings */
+.start-menu{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.centered-menu{
+    display: flex;
+    flex-direction: column;
+}
+.test-menu{
+    display: flex;
+    gap: 25px;
+    flex-direction: column;
+    align-items: stretch;
+}
 
 /* kmom10 styling ends */

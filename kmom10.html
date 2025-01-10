@@ -51,6 +51,61 @@
 
         </div>
     </main>
+
+
+
+    <main class="content">
+        <!-- Start Button -->
+        <div id="start-menu" class="start-menu">
+            <h1>Welcome to the Intelligence Test</h1>
+            <button id="start-button" class="button borders three-d" style="color:yellow;padding: 10px">Start</button>
+        </div>
+
+        <!-- Deltest Menu -->
+        <div id="test-menu" class="hidden">
+            <!-- <div id="test-menu" class="hidden test-menu"> -->
+            <h2>Select a Test</h2>
+            <button class="button  borders three-d" style="color:yellow;padding: 10px" data-target="deltest1">Tipsfrågor
+            </button>
+            <button class="button  borders three-d" style="color:yellow;padding: 10px"
+                data-target="deltest2">Fizzbuzz</button>
+            <button class="button  borders three-d" style="color:yellow;padding: 10px" data-target="deltest3">Deltest
+                3</button>
+            <button id="back-button" class="button  borders three-d" style="color:yellow;padding: 10px"
+                data-target="deltest3">Tillbaka till meny</button>
+        </div>
+
+        <!-- Deltest Content -->
+        <div id="deltest1" class="deltest">
+            <h2>Deltest 1: Tipsfrågor</h2>
+            <div id="question-container">
+                <!-- Questions will be displayed here -->
+            </div>
+            <button id="back-button" class="button borders three-d" style="color:yellow;padding: 10px">Back to Main
+                Menu</button>
+            <button id="restart-button" class="button borders three-d" style="color:yellow;padding: 10px">Restart
+                Test</button>
+            <div id="score-container" class="hidden">
+                <h3>Your Score: <span id="score-value">0</span></h3>
+            </div>
+            <button onclick="location.reload()">Back to Main Menu</button>
+            <button id="restart-button">Restart test</button>
+        </div>
+
+        <div id="deltest2" class="deltest">
+            <h2>Deltest 2</h2>
+            <p>Content for Deltest 2 goes here.</p>
+            <button onclick="location.reload()">Back to Main Menu</button>
+        </div>
+
+        <div id="deltest3" class="deltest">
+            <h2>Deltest 3</h2>
+            <p>Content for Deltest 3 goes here.</p>
+            <button onclick="location.reload()">Back to Main Menu</button>
+        </div>
+    </main>
+
+
     <script type="module" src="js/kmom10.js"></script>
 </body>
 

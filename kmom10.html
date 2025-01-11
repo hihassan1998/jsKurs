@@ -62,46 +62,60 @@
         </div>
 
         <!-- Deltest Menu -->
-        <div id="test-menu" class="hidden">
+        <div id="test-menu" class="hidden test-menu">
             <!-- <div id="test-menu" class="hidden test-menu"> -->
             <h2>Select a Test</h2>
+
             <button class="button  borders three-d" style="color:yellow;padding: 10px" data-target="deltest1">Tipsfrågor
             </button>
+
             <button class="button  borders three-d" style="color:yellow;padding: 10px"
                 data-target="deltest2">Fizzbuzz</button>
+
             <button class="button  borders three-d" style="color:yellow;padding: 10px" data-target="deltest3">Deltest
                 3</button>
+
             <button id="back-button" class="button  borders three-d" style="color:yellow;padding: 10px"
                 data-target="deltest3">Tillbaka till meny</button>
+
         </div>
 
         <!-- Deltest Content -->
-        <div id="deltest1" class="deltest">
+        <div id="deltest1" class="deltest hidden">
             <h2>Deltest 1: Tipsfrågor</h2>
+            <!-- Question Container -->
             <div id="question-container">
                 <!-- Questions will be displayed here -->
             </div>
-            <button id="back-button" class="button borders three-d" style="color:yellow;padding: 10px">Back to Main
-                Menu</button>
-            <button id="restart-button" class="button borders three-d" style="color:yellow;padding: 10px">Restart
-                Test</button>
+            <br><br>
+            <div id="feedback-container" class="hidden"></div>
+
+            <!-- Score Container -->
             <div id="score-container" class="hidden">
-                <h3>Your Score: <span id="score-value">0</span></h3>
+                <h3>Quiz Completed!</h3>
+                <p id="score-value"></p>
+                <button id="restart-button" style="margin-top:10px; color:yellow;padding: 10px"
+                    class="button borders three-d restart-button">Restart Quiz</button>
             </div>
-            <button onclick="location.reload()">Back to Main Menu</button>
-            <button id="restart-button">Restart test</button>
+            <button id="next-button" class="hidden button borders three-d " style="color:yellow;padding: 10px">Next Question</button>
+
+            <br><br>
+            <div>
+                <button class="button borders three-d button-tst" style="color:yellow;padding: 10px">Back to Main Menu</button>
+            </div>
+
         </div>
 
-        <div id="deltest2" class="deltest">
+        <div id="deltest2" class="deltest hidden">
             <h2>Deltest 2</h2>
             <p>Content for Deltest 2 goes here.</p>
-            <button onclick="location.reload()">Back to Main Menu</button>
+            <button class="button borders three-d button-tst" style="color:yellow;padding: 10px">Back to Main Menu</button>
         </div>
 
-        <div id="deltest3" class="deltest">
+        <div id="deltest3" class="deltest hidden">
             <h2>Deltest 3</h2>
             <p>Content for Deltest 3 goes here.</p>
-            <button onclick="location.reload()">Back to Main Menu</button>
+            <button class="button borders three-d button-tst" style="color:yellow;padding: 10px">Back to Main Menu</button>
         </div>
     </main>
 

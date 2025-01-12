@@ -384,7 +384,8 @@ button {
     border-radius: 5px;
     border: 2px solid #333;
 }
-.lrg-txt{
+
+.lrg-txt {
     font-size: 1.5rem;
 }
 
@@ -485,9 +486,10 @@ button:hover {
     padding: 10px 20px;
     font-size: 1.5rem;
 }
+
 .restart-button {
     margin: auto;
-    font-size:1.5rem;
+    font-size: 1.5rem;
 }
 
 /* menu stylings */
@@ -510,19 +512,40 @@ div#question-container {
     gap: 15px;
 }
 
-.flex-col{
+.flex-col {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 25px;
 }
-.flex-row{
+
+.flex-row {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
     gap: 25px;
+}
+
+/* deltest3 memory stylings */
+#memory-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    justify-items: center;
+    align-items: center;
+}
+
+.memory-images {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+}
+@media (max-width: 768px) {
+    .flex-row {
+        flex-wrap: wrap;
+    }
 }
 
 /* kmom10 styling ends */

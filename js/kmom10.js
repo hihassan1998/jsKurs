@@ -156,9 +156,14 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log('Deltest 2 completed. Moving to Deltest 3.')
     showDeltest(deltest3)
   })
-
+  // Start test eventlistner
+  startMemoryTestButton.addEventListener('click', () => {
+    startMemoryTestButton.classList.add('hidden')
+    showDeltest(deltest3)
+  })
   const deltest3Button = document.querySelector('[data-target="deltest3"]')
   deltest3Button.addEventListener('click', () => {
+    startMemoryTestButton.classList.remove('hidden')
     showDeltest(deltest3)
   })
 

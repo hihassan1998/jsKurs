@@ -12,10 +12,9 @@ function startMemoryTest(memoryGrid, imageNamesList, statusDisplay, nextTestLink
   displayImages(memoryGrid, images)
 
   setTimeout(() => {
-    // memoryGrid.classList.add('hidden-images')
-    const imgContainers = memoryGrid.querySelectorAll('.memory-grid-item')
-    imgContainers.forEach((container) => {
-      container.classList.add('active-tst') // Hide image containers after 5 seconds
+    const imgElements = memoryGrid.querySelectorAll('.memory-images')
+    imgElements.forEach((img) => {
+      img.classList.add('hidden-image') // Add the hidden class to hide images
     })
 
     memoryGrid.classList.add('hidden')
@@ -109,11 +108,12 @@ function displayImageNames(list, images, memoryGrid, statusDisplay, nextTestLink
  * Reveals an image in the grid based on the user's guess.
  */
 function revealImage (grid, index, imageSrc) {
-  const gridItem = grid.querySelector(`[data-index="${index}"]`) // Find the grid item by data-index
+  const gridItem = grid.querySelector(`[data-index="${index}"]`)
 
   grid.classList.remove('hidden')
   if (gridItem) {
     const imgElement = document.createElement('img')
+    imgElement.classList.add('hidden-image')
     imgElement.src = imageSrc // Set the source of the image
     imgElement.alt = `Revealed Image ${index + 1}`
 

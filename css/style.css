@@ -580,7 +580,7 @@ li {
 }
 
 /* Optional: Hide images initially but keep grid structure */
-.memory-grid-item img {
+.memory-grid-item img.hidden-image {
     visibility: hidden;
 }
 

@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Presentation av min själv i kursen DV1657</title>
+    <title>Projekt Arbete (Kmom10)</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="shortcut icon" href="img/hh_logo_b.png">
 </head>
@@ -52,17 +52,26 @@
         </div>
     </main>
 
-
-
     <main class="content">
         <!-- Start Button -->
-        <div id="start-menu" class="start-menu">
+        <div id="start-menu" class="start-menu flex-col">
             <h1>Welcome to the Intelligence Test</h1>
+            <p>
+                This app features a series of tests designed to challenge your logical thinking and problem-solving
+                skills. Choose from the following tests to get started:
+                <br>
+                Deltest 1: Tipsfrågor – A series of question-and-answer challenges that test your knowledge and
+                decision-making ability.
+                <br>
+                Deltest 2: Fizzbuzz – A classic coding exercise to check your understanding of basic programming logic.
+                <br>
+                Deltest 3 – Coming soon
+            </p>
             <button id="start-button" class="button borders three-d" style="color:yellow;padding: 10px">Start</button>
         </div>
 
         <!-- Deltest Menu -->
-        <div id="test-menu" class="hidden test-menu">
+        <div id="test-menu" class="hidden test-menu flex-col">
             <!-- <div id="test-menu" class="hidden test-menu"> -->
             <h2>Select a Test</h2>
 
@@ -81,13 +90,15 @@
         </div>
 
         <!-- Deltest Content -->
-        <div id="deltest1" class="deltest hidden">
+        <div id="deltest1" class="deltest hidden flex-col">
             <h2>Deltest 1: Tipsfrågor</h2>
+
             <!-- Question Container -->
             <div id="question-container">
                 <!-- Questions will be displayed here -->
             </div>
             <br><br>
+
             <div id="feedback-container" class="hidden"></div>
 
             <!-- Score Container -->
@@ -97,25 +108,59 @@
                 <button id="restart-button" style="margin-top:10px; color:yellow;padding: 10px"
                     class="button borders three-d restart-button">Restart Quiz</button>
             </div>
-            <button id="next-button" class="hidden button borders three-d " style="color:yellow;padding: 10px">Next Question</button>
 
-            <br><br>
-            <div>
-                <button class="button borders three-d button-tst" style="color:yellow;padding: 10px">Back to Main Menu</button>
+            <button id="next-button" class="hidden button borders three-d " style="color:yellow;padding: 10px">Next
+                Question</button>
+            <a id="next-test-link-1" class="hidden button borders three-d "
+                style="color:yellow;padding: 10px; font-size: 1.5rem;" href="#next-test">Next Test</a>
+
+            <!-- <div> -->
+            <button class="button borders three-d button-tst" style="color:yellow;padding: 10px">Back to Main
+                Menu</button>
+            <!-- </div> -->
+
+        </div>
+
+        <div id="deltest2" class="deltest hidden flex-col">
+            <h2>Deltest 2: Fizz Buzz</h2>
+            <p>Guess the next answer in the sequence:</p>
+
+            <div id="fizzbuzz-question" style="font-weight: bold; font-size: 1.5rem;">
+            </div>
+            <div id="answerButtonsContainer" class="flex-row ">
             </div>
 
+            <!-- Feedback Display -->
+            <div id="feedback" class="feedback-container">
+                <!-- Feedback for correct/incorrect answers will be displayed here -->
+            </div>
+
+            <a id="next-test-link" class="hidden button borders three-d "
+                style="color:yellow;padding: 10px; font-size: 1.5rem;" href="#next-test">Next Test</a>
+
+            <button id="next-button" class="hidden button borders three-d " style="color:yellow;padding: 10px">Next
+                Question</button>
+
+            <button class="button borders three-d button-tst" style="color:yellow;padding: 10px">Back to Main
+                Menu</button>
         </div>
 
-        <div id="deltest2" class="deltest hidden">
-            <h2>Deltest 2</h2>
-            <p>Content for Deltest 2 goes here.</p>
-            <button class="button borders three-d button-tst" style="color:yellow;padding: 10px">Back to Main Menu</button>
-        </div>
-
-        <div id="deltest3" class="deltest hidden">
+        <div id="deltest3" class="deltest hidden flex-col">
             <h2>Deltest 3</h2>
-            <p>Content for Deltest 3 goes here.</p>
-            <button class="button borders three-d button-tst" style="color:yellow;padding: 10px">Back to Main Menu</button>
+            <p>Här är ett minnestest. Titta noga på bilderna i 5 sekunder och försök att komma ihåg deras position!</p>
+
+
+            <button id="start-memory-test">Starta testet</button>
+            <div id="memory-grid" class="grid hidden"></div>
+            <ol id="image-names" class="hidden"></ol>
+            <p id="memory-status"></p>
+            <a id="next-test-link-3" href="#" class="hidden">Gå vidare till nästa test</a>
+
+
+
+
+            <button class="button borders three-d button-tst" style="color:yellow;padding: 10px">Back to Main
+                Menu</button>
         </div>
     </main>
 

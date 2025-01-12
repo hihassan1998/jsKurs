@@ -13,9 +13,10 @@ let score = 0
 // let userAnswers = [] // Array to save user inputs
 
 const questionContainer = document.getElementById('question-container')
-const scoreContainer = document.getElementById('score-container')
-const scoreValue = document.getElementById('score-value')
 const feedbackContainer = document.getElementById('feedback-container')
+const scoreContainer = document.getElementById('score-container')
+
+const scoreValue = document.getElementById('score-value')
 const nextButton = document.getElementById('next-button')
 
 /**
@@ -25,9 +26,8 @@ async function loadQuestions () {
   const response = await fetch('./data/questions.json')
   const data = await response.json()
   questions = data.questions
-  currentQuestionIndex = 0 // Reset to the first question
-  score = 0 // Reset score
-  // userAnswers = [] // Reset user answers
+  currentQuestionIndex = 0
+  score = 0
   displayQuestion()
 }
 
@@ -35,7 +35,8 @@ async function loadQuestions () {
  * Displays the current question and its options.
  */
 function displayQuestion () {
-  feedbackContainer.classList.remove('hidden')
+  feedbackContainer.classList.add('hidden')
+  nextButton.classList.add('hidden')
 
   const question = questions[currentQuestionIndex]
   questionContainer.innerHTML = `
@@ -55,9 +56,12 @@ function displayQuestion () {
   const optionButtons = document.querySelectorAll('.option-button')
   optionButtons.forEach((button) => {
     button.addEventListener('click', () => {
-      checkAnswer(button.textContent) // Get the button text and check answer
+      optionButtons.forEach((btn) => (btn.disabled = true))
+      checkAnswer(button.textContent)
+      nextButton.classList.remove('hidden')
     })
   })
+  nextButton.classList.add('hidden')
 }
 
 /**
@@ -71,12 +75,14 @@ function showFeedback (isCorrect, correctAnswer) {
     ? 'Correct! You earned 3 points.'
     : `Incorrect. The correct answer is: ${correctAnswer}`
   nextButton.classList.remove('hidden')
-  nextButton.addEventListener('click', moveToNextQuestion)
 }
 /**
  * Moves to the next question or shows the final score.
  */
 function moveToNextQuestion () {
+  feedbackContainer.classList.add('hidden')
+  nextButton.classList.add('hidden')
+
   currentQuestionIndex++
   if (currentQuestionIndex < questions.length) {
     displayQuestion()
@@ -100,14 +106,6 @@ function checkAnswer (selectedOption) {
   }
   // Display feedback
   showFeedback(isCorrect, correctAnswer)
-
-  currentQuestionIndex++
-
-  if (currentQuestionIndex < questions.length) {
-    displayQuestion()
-  } else {
-    showScore()
-  }
 }
 
 /**
@@ -117,30 +115,26 @@ function showScore () {
   questionContainer.classList.add('hidden')
   feedbackContainer.classList.add('hidden')
   scoreContainer.classList.remove('hidden')
+
+  const nextTestFrom1 = document.getElementById('next-test-link-1')
+
   const totalScoreP1 = questions.length * 3
   scoreValue.textContent = `${score}/${totalScoreP1}`
   nextButton.classList.add('hidden')
+  nextTestFrom1.classList.remove('hidden')
 }
 
 /**
  * Allows restarting the quiz.
  */
 function restartQuiz () {
-  currentQuestionIndex = 0 // Start from the first question
-  score = 0 // Reset the score
-
-  // Reset the UI elements
-  questionContainer.classList.remove('hidden') // Show the question container
-  scoreContainer.classList.add('hidden') // Hide the score container
-
-  // Reload questions and display the first one
+  currentQuestionIndex = 0
+  score = 0
+  questionContainer.classList.remove('hidden')
+  scoreContainer.classList.add('hidden')
   loadQuestions()
 }
 
-export { displayQuestion, loadQuestions, checkAnswer, restartQuiz }
+nextButton.addEventListener('click', moveToNextQuestion)
 
-// fixes:
-// await for pressing the nextbutton 
-// then go to nect questions
-//  user gets to see correct anser 
-//  and wrong on that page
+export { displayQuestion, loadQuestions, checkAnswer, restartQuiz }

@@ -1,3 +1,9 @@
+/**
+ * Module for simpler helping funtions used in the kmom10.js.
+ * - Checks answers and calculates score.
+ * - Shows the final score and allows restarting the test.
+ * @module kmom10/functions
+ */
 import {
   deltest1,
   deltest2,

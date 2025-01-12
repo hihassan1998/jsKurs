@@ -529,7 +529,7 @@ div#question-container {
 }
 
 /* deltest3 memory stylings */
-/* #memory-grid {
+#memory-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 10px;
@@ -553,38 +553,16 @@ ol#image-names {
     display: flex;
     flex-direction: column;
 }
-
-li {
-    margin-bottom: 10px;
-} */
-
-#memory-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-    justify-items: center;
-    align-items: center;
-}
-
-.memory-images {
+.revealed-image {
     width: 80px;
     height: 80px;
     object-fit: cover;
 }
 
-/* Optional: Add a class for the revealed image */
-.revealed-image {
-    width: 80px; /* Ensure it fills the grid item */
-    height: 80px;
-    object-fit: cover; /* Maintain aspect ratio */
-}
-
-/* Optional: Hide images initially but keep grid structure */
 .memory-grid-item img.hidden-image {
     visibility: hidden;
 }
 
-/* When revealed, make the image visible without affecting grid layout */
 .memory-grid-item img.revealed-image {
     visibility: visible;
 }

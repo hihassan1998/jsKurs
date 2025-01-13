@@ -1,3 +1,10 @@
+/**
+ * Modul för att återställa och starta om deltest i kmom10.
+ * - Återställer det aktiva deltestet (Tipsfrågor, FizzBuzz eller Memory).
+ * - Använder moduler för att hantera återställning och omstart av deltesterna.
+ * - Startar om relevant funktionalitet beroende på vilket deltest som är aktivt.
+ * @module kmom10/resetModule
+ */
 import {
   resetDeltest1, resetDeltest2, resetDeltest3
 } from './resetFunctions.js'

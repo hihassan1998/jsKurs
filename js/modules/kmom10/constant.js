@@ -1,8 +1,8 @@
 // constant.js
 export const IMAGE_PATHS = [
-  '../../../img/apple.jpg',
-  '../../../img/banann.jpg',
-  '../../../img/pear.jpg'
+  './img/pear.jpg',
+  './img/apple.jpg',
+  './img/banann.jpg'
 ]
 // export const IMAGE_PATHS = [
 //   '../../../img/apple.jpg',

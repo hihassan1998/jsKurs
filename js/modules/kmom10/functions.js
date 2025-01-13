@@ -1,7 +1,7 @@
 /**
- * Module for simpler helping funtions used in the kmom10.js.
- * - Checks answers and calculates score.
- * - Shows the final score and allows restarting the test.
+ * Modulen innehåller hjälpfunktioner för kmom10.js.
+ * - Kollar svar och räknar poäng.
+ * - Visar slutpoäng och låter användaren starta om testet.
  * @module kmom10/functions
  */
 import {
@@ -17,7 +17,7 @@ const testMenu = document.getElementById('test-menu')
 const questionElement = document.getElementById('fizzbuzz-question')
 
 /**
- * Displays the start menu and its options.
+ * Visar startmenyn och dess alternativ.
  */
 function showStartMenu () {
   // Hide all deltest divs and show the start menu
@@ -28,8 +28,8 @@ function showStartMenu () {
 }
 
 /**
- * Displays the specified deltest by hiding other deltest divs and making the target deltest visible.
- * @param {HTMLElement} targetDeltest - The target deltest to be shown (one of deltest1, deltest2, or deltest3).
+ * Visar det valda deltestet genom att dölja de andra deltesterna.
+ * @param {HTMLElement} targetDeltest - Det deltest som ska visas (kan vara deltest1, deltest2 eller deltest3).
  */
 function showDeltest (targetDeltest) {
   // Hide all deltest divs
@@ -45,7 +45,7 @@ function showDeltest (targetDeltest) {
 }
 
 /**
- * This function handle starting deltest 2.
+ * Startar deltest 2.
  */
 function startFizzBuzzForDeltest2 () {
   const startValue = Math.floor(Math.random() * 10) + 1
@@ -54,12 +54,15 @@ function startFizzBuzzForDeltest2 () {
   showDeltest(deltest2)
 }
 /**
- * Function to display the score
+ * Visar spelarens poäng och procent i DOM:en.
+ * @param {number} score - Spelarens poäng.
+ * Funktionen beräknar procent baserat på maxpoäng 36 och uppdaterar
+ * elementet med ID 'scoreDisplay' med poäng och procent.
  */
-function displayScore(score) {
+function displayScore (score) {
   const scoreDisplay = document.getElementById('scoreDisplay')
   const percent = (score / 36) * 100
-  scoreDisplay.innerHTML = `Total Score:<br> ${score} / 36 <br> Total Percentage:<br>${percent.toFixed(2)}%`;
+  scoreDisplay.innerHTML = `Total Score:<br> ${score} / 36 <br> Total Percentage:<br>${percent.toFixed(2)}%`
 }
 
 export {

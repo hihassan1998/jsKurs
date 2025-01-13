@@ -1,7 +1,7 @@
 /**
  * Module for simpler helping funtions used in the kmom10.js.
  * - Memory game logic.
- * @module kmom10/memory.js
+ * @module kmom10/memory
  */
 import { IMAGE_PATHS, MEMORY_TEST_DURATION, MAX_IMAGE_OCCURRENCES } from './constant.js'
 
@@ -39,13 +39,13 @@ const gameState = {
 // let gameOver = false
 gameState.gameOver = false
 /**
- * Hanterar spelarens gissningar och kontrollerar om de är korrekta i relation till den rätta ordningen.
- * Funktionen lägger till den valda bilden i spelarens ordning och kontrollerar om gissningen matchar rätt ordning. Om gissningen är korrekt avslöjas den motsvarande bilden och spelarens poäng ökar
- * Om alla bilder har valts korrekt avslutas spelet, annars avslutas spelet vid fel gissning.
- * @param {string} name - Namnet på den valda bilden som spelaren klickade på.
- * @param {HTMLElement} memoryGrid - Rutnätselementet där bilderna ska avslöjas.
- * @param {HTMLElement} statusDisplay - Elementet där spelets statusmeddelanden (t.ex. testets resultat) visas.
- * @param {Array} images - Lista över bildobjekt som innehåller bildens sökväg och ID.
+ * Hanterar spelarens gissningar och kollar om de är rätt.
+ * Funktionen lägger till den valda bilden i spelarens ordning och kollar om gissningen stämmer med rätt ordning. Om gissningen är rätt visas bilden och spelarens poäng ökar.
+ * Om alla bilder har valts rätt avslutas spelet, annars avslutas spelet vid fel gissning.
+ * @param {string} name - Namnet på den bild spelaren klickade på.
+ * @param {HTMLElement} memoryGrid - Rutnätet där bilderna ska visas.
+ * @param {HTMLElement} statusDisplay - Där resultatet för spelet visas.
+ * @param {Array} images - Lista med bilder som innehåller bildens namn och ID.
  */
 function handleGuess (name, memoryGrid, statusDisplay, images) {
   if (gameState.gameOver) {
@@ -141,12 +141,12 @@ function displayImages (grid, images) {
   })
 }
 /**
- * Visar de unika bildnamnen i en lista.
- * Funktionen skapar en lista med de unika bildnamnen och blandar dessa innan de visas. När användaren klickar på ett namn, kontrolleras om det valda namnet  är korrekt i förhållande till det ordningsföljd som definieras i spelet.
- * @param {HTMLElement} list - Elementet som representerar listan där namn visas.
- * @param {Array} images - En lista med bildobjekt som innehåller bildens sökväg.
- * @param {HTMLElement} memoryGrid - Rutnätselementet där bilderna ska avslöjas.
- * @param {HTMLElement} statusDisplay - Elementet som visar statusmeddelanden (t.ex. korrekt/felaktig gissning).
+ * Visar en lista med unika bildnamn.
+ * Funktionen skapar en lista med unika bildnamn och blandar dem innan de visas. När användaren klickar på ett namn, kontrolleras om namnet är rätt enligt ordningen i spelet.
+ * @param {HTMLElement} list - Elementet där listan med namn ska visas.
+ * @param {Array} images - Lista med bildobjekt som innehåller bildens namn.
+ * @param {HTMLElement} memoryGrid - Rutnätet där bilderna ska visas.
+ * @param {HTMLElement} statusDisplay - Elementet som visar om gissningen var rätt eller fel.
  */
 function displayImageNames (list, images, memoryGrid, statusDisplay) {
   // Extract unique image names from the images array

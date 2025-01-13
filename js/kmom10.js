@@ -1,11 +1,14 @@
 /**
  * Huvudskript för Deltest 1, 2 och/eller (3,4,5).
  * - Hanterar spelets logik och uppdaterar UI.
- * - Använder moduler för att visa och uppdatera deltestarna och minipulterar DOM.
+ * - Använder moduler för att visa och uppdatera deltestarna och manipulerar DOM.
  * @namespace kmom10
  * @property {module:kmom10/tipsQuestions} tipsQuestions Hanterar logiken för att tipsQuestions del 1.
  * @property {module:kmom10/fizzBuzz} fizzBuzz Tillhandahåller funktionalitet för att hantera ordlistan.
- * @property {module:kmom10/memory} memory Tillhandahåller funktionalitet för att hantera ordlistan.
+ * @property {module:kmom10/memory} memory Tillhandahåller funktionalitet för att hantera minnesspel.
+ * @property {module:kmom10/resetFunctions} resetFunctions Hanterar funktionalitet för att återställa spelet och dess tillstånd.
+ * @property {module:kmom10/constant} constant Används för att importera bilder till memory testet.
+ * @property {module:kmom10/functions} functions Används för att importera funktioner som används till start- och test-meny.
  */
 import * as tipsQuestions from './modules/kmom10/tipsQuestions.js'
 import { loadQuestions, tipsScore } from './modules/kmom10/tipsQuestions.js'

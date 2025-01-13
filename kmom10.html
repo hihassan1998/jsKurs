@@ -32,22 +32,17 @@
             <p>
                 Denna app innehåller en serie tester som utmanar din logiska tänkande och problemlösningsförmåga. Välj
                 ett deltest nedan för att börja:
-                <br>
-                <br>
-                <strong>Deltest 1:</strong>
-                Tipsfrågor – Frågor som testar din kunskap och beslutsförmåga.
-                <br>
-                <br>
-                <strong>Deltest 2:</strong>
-
-                Fizzbuzz – Ett kritisktänkande övning som testar din förståelse av sekvenser.
-                <br>
-                <br>
-                <strong>Deltest 3:</strong>
-                Minnestest – Ett klassiskt spel för att testa din visuella minnesförmåga.
+                <br><br>
+                <strong>Deltest 1:</strong> Tipsfrågor - Frågor som testar din kunskap och beslutsförmåga.
+                <br><br>
+                <strong>Deltest 2:</strong> Fizzbuzz - Ett kritisktänkande övning som testar din förståelse av
+                sekvenser.
+                <br><br>
+                <strong>Deltest 3:</strong> Minnestest - Ett klassiskt spel för att testa din visuella minnesförmåga.
             </p>
             <button id="start-button" class="button borders three-d" style="color:yellow;padding: 10px">Start</button>
         </div>
+
 
         <!-- Deltest Menu -->
         <div id="test-menu" class="hidden test-menu flex-col">
@@ -59,7 +54,8 @@
             <button class="button  borders three-d" style="color:yellow;padding: 10px"
                 data-target="deltest2">Fizzbuzz</button>
 
-            <button class="button  borders three-d" style="color:yellow;padding: 10px" data-target="deltest3">Memory</button>
+            <button class="button  borders three-d" style="color:yellow;padding: 10px"
+                data-target="deltest3">Memory</button>
 
             <button id="back-button" class="button  borders three-d" style="color:yellow;padding: 10px"
                 data-target="deltest3">Tillbaka till meny</button>
@@ -91,7 +87,7 @@
             <a id="next-test-link-1" class="hidden button borders three-d "
                 style="color:yellow;padding: 10px; font-size: 1.5rem;" href="#next-test">Next Test</a>
 
-            <button class="button borders three-d button-tst" style="color:yellow;padding: 10px">Gå  tillbaka</button>
+            <button class="button borders three-d button-tst" style="color:yellow;padding: 10px">Gå tillbaka</button>
 
         </div>
 
@@ -112,21 +108,23 @@
             <a id="next-test-link" class="hidden button borders three-d "
                 style="color:yellow;padding: 10px; font-size: 1.5rem;" href="#next-test">Next Test</a>
 
-            <button id="next-button" class="hidden button borders three-d " style="color:yellow;padding: 10px">Next
-                Question</button>
+            <!-- <button id="next-button" class="hidden button borders three-d " style="color:yellow;padding: 10px">Next
+                Question</button> -->
 
-            <button class="button borders three-d button-tst" style="color:yellow;padding: 10px">Gå  tillbaka</button>
+            <button class="button borders three-d button-tst" style="color:yellow;padding: 10px">Gå tillbaka</button>
         </div>
 
         <div id="deltest3" class="deltest hidden flex-col">
             <h2>Memory</h2>
-            <p>Här är ett minnestest. Titta noga på bilderna i 5 sekunder och försök att komma ihåg deras position. Klicka sedan på rätt fruktnamn i ordning som bilderna visades.</p>
+            <p>Här är ett minnestest. Titta noga på bilderna i 5 sekunder och försök att komma ihåg deras position.
+                Klicka sedan på rätt fruktnamn i ordning som bilderna visades.
+            </p>
 
             <button id="start-memory-test" class="option-button hidden ">Starta testet</button>
             <div id="memory-grid" class="grid hidden flex-col"></div>
 
             <ol id="image-names" class="hidden"></ol>
-            <p id="memory-status" style="font-weight: 900; font-size: 1.5rem;"></p>
+            <p id="memory-status" style="font-weight: 900; font-size: 1.5rem"></p>
 
             <div id="scoreDisplay" class="hidden" style="font-weight: 900; font-size: 2rem; color:#f9c710 ;"></div>
             <button id="scoreBtn" class="button borders three-d hidden" style="color:yellow;padding: 10px">Show Final

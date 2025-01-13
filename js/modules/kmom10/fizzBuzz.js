@@ -1,15 +1,15 @@
 /**
- * Module for logic of fizzBuzz used in the kmom10.js.
- * - Memory game logic.
- * @module kmom10/fizzBuzz.js
+ * Modulen innehåller logiken för FizzBuzz som används i kmom10.js.
+ * - Logik för memory-spel.
+ * @module kmom10/fizzBuzz
  */
 let currentIndex = [] // To store the current FizzBuzz sequence
 let score = 0 // Initialize score
 let fizzBuzzSequence = []
 /**
- * Generates the FizzBuzz sequence starting from a given value.
- * @param {number} start - The starting value for the FizzBuzz sequence.
- * @returns {Array} The generated FizzBuzz sequence.
+ * Skapar en FizzBuzz-sekvens från ett startvärde.
+ * @param {number} start - Startvärdet för FizzBuzz-sekvensen.
+ * @returns {Array} Den genererade FizzBuzz-sekvensen.
  */
 function generateFizzBuzzSequence (start) {
   const sequence = []
@@ -28,9 +28,9 @@ function generateFizzBuzzSequence (start) {
 }
 
 /**
- * Displays the current FizzBuzz sequence and the next question for the user.
- * @param {HTMLElement} questionElement - The HTML element where the question will be displayed.
- * @param {NodeList} answerButtonsContainer - The buttons where the answer choices will be displayed.
+ * Visar den aktuella FizzBuzz-sekvensen och nästa fråga för användaren.
+ * @param {HTMLElement} questionElement - HTML-elementet där frågan ska visas.
+ * @param {NodeList} answerButtonsContainer - Knappcontainer där svarsalternativen visas.
  */
 function displayFizzBuzzQuestion (questionElement, answerButtonsContainer) {
   const sequence = fizzBuzzSequence.slice(0, currentIndex).join(', ')
@@ -49,18 +49,18 @@ function displayFizzBuzzQuestion (questionElement, answerButtonsContainer) {
 }
 
 /**
- * Shuffles an array of answers for randomness.
- * @param {string[]} answers - Array of answers to shuffle.
- * @returns {string[]} - Shuffled answers.
+ * Blandar ett svarsalternativ för att göra det slumpmässigt.
+ * @param {string[]} answers - Array av svar att blanda.
+ * @returns {string[]} Blandade svar.
  */
 function shuffleAnswers (answers) {
   return answers.sort(() => Math.random() - 0.5)
 }
 
 /**
- * Generates fake answers for the FizzBuzz question.
- * @param {string} correctAnswer - The correct answer for the current FizzBuzz question.
- * @returns {Array} - Array of fake answers along with the correct one.
+ * Genererar falska svar för FizzBuzz-frågan.
+ * @param {string} correctAnswer - Det rätta svaret för FizzBuzz-frågan.
+ * @returns {Array} Array med falska svar samt det rätta.
  */
 function generateFakeAnswers (correctAnswer) {
   const fakeAnswers = []
@@ -73,10 +73,10 @@ function generateFakeAnswers (correctAnswer) {
   return fakeAnswers
 }
 /**
- * Checks the user's answer and updates the score or provides feedback.
- * @param {string|number} userAnswer - The user's selected answer.
- * @param {HTMLElement} questionElement - The question element where feedback is shown.
- * @param {NodeList} answerButtonsContainer - The container where the answer buttons are displayed.
+ * Kollar användarens svar och uppdaterar poängen eller ger feedback.
+ * @param {string|number} userAnswer - Användarens valda svar.
+ * @param {HTMLElement} questionElement - Frågeelementet där feedback visas.
+ * @param {NodeList} answerButtonsContainer - Behållaren för svarsknapparna.
  */
 function checkAnswer (userAnswer, questionElement, answerButtonsContainer) {
   const correctAnswer = fizzBuzzSequence[currentIndex]
@@ -116,8 +116,8 @@ function checkAnswer (userAnswer, questionElement, answerButtonsContainer) {
   }, 1000)
 }
 /**
- * Starts the FizzBuzz test with a new random sequence.
- * @param {number} startValue - Random starting value for the sequence.
+ * Startar FizzBuzz-testet med en ny slumpmässig sekvens.
+ * @param {number} startValue - Slumpmässigt startvärde för sekvensen.
  */
 function startFizzBuzz (startValue) {
   score = 0
@@ -128,9 +128,9 @@ function startFizzBuzz (startValue) {
 
 let fizzBuzzScore = 0
 /**
- * Updates the score for the FizzBuzz game.
- * This function sets the value of the global fizzBuzzScore variable to the given score.
- * @param {number} score - The new global score to set for the FizzBuzz game.
+ * Uppdaterar poängen för FizzBuzz-spelet.
+ * Den här funktionen sätter värdet för den globala fizzBuzzScore-variabeln till den angivna poängen.
+ * @param {number} score - Den nya globala poängen för FizzBuzz-spelet.
  */
 function updateFizzBuzzScore (score) {
   fizzBuzzScore = score

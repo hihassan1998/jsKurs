@@ -1,9 +1,9 @@
 /**
- * Module for handling the Tipsfrågor quiz functionality.
- * - Loads questions from a JSON file.
- * - Displays questions one by one.
- * - Checks answers and calculates score.
- * - Shows the final score and allows restarting the test.
+ * Modul för att hantera funktionaliteten för Tipsfrågor quiz.
+ * - Laddar frågor från en JSON-fil.
+ * - Visar frågor en i taget.
+ * - Kollar svar och räknar poäng.
+ * - Visar slutpoängen och möjliggör att starta om testet.
  * @module kmom10/tipsQuestions
  */
 
@@ -20,7 +20,7 @@ const scoreValue = document.getElementById('score-value')
 const nextButton = document.getElementById('next-button')
 
 /**
- * Loads questions from the JSON file.
+ * Laddar frågor från JSON-filen.
  */
 async function loadQuestions () {
   const response = await fetch('./data/questions.json')
@@ -32,7 +32,7 @@ async function loadQuestions () {
 }
 
 /**
- * Displays the current question and its options.
+ * Visar den aktuella frågan och dess alternativ.
  */
 function displayQuestion () {
   feedbackContainer.classList.add('hidden')
@@ -65,9 +65,9 @@ function displayQuestion () {
 }
 
 /**
- * Shows feedback for the current question.
- * @param {boolean} isCorrect - Whether the selected answer is correct.
- * @param {string} correctAnswer - The correct answer.
+ * Visar feedback för den aktuella frågan.
+ * @param {boolean} isCorrect - Om det valda svaret är korrekt.
+ * @param {string} correctAnswer - Det rätta svaret.
  */
 function showFeedback (isCorrect, correctAnswer) {
   feedbackContainer.classList.remove('hidden')
@@ -91,10 +91,10 @@ function moveToNextQuestion () {
   }
 }
 /**
- * Checks if the selected answer is correct and updates the score.
- * Saves the selected answer for later review.
- * Displays the next question or shows the final score if all questions are answered.
- * @param {string} selectedOption - The selected answer option.
+ * Kollar om det valda svaret är rätt och uppdaterar poängen.
+ * Sparar det valda svaret för senare granskning.
+ * Visar nästa fråga eller visar slutpoängen om alla frågor är besvarade.
+ * @param {string} selectedOption - Det valda svaret.
  */
 function checkAnswer (selectedOption) {
   const question = questions[currentQuestionIndex]
@@ -110,7 +110,7 @@ function checkAnswer (selectedOption) {
 }
 
 /**
- * Shows the final score and user's answers.
+ * Visar slutpoängen och användarens svar.
  */
 function showScore () {
   questionContainer.classList.add('hidden')
@@ -126,7 +126,7 @@ function showScore () {
 }
 
 /**
- * Allows restarting the quiz.
+ * Möjliggör att starta om quizet.
  */
 function restartQuiz () {
   currentQuestionIndex = 0
@@ -142,9 +142,9 @@ nextButton.addEventListener('click', moveToNextQuestion)
 let tipsScore = 0
 
 /**
- * Updates the score for the tipsquestions game.
- * This function sets the value of the global tipsquestions variable to the given score.
- * @param {number} score - The new score to set for the FizzBuzz game.
+ * Uppdaterar poängen för tipsfrågorna.
+ * Denna funktion sätter värdet för den globala tipsfrågevariabeln till den nya poängen.
+ * @param {number} score - Den nya poängen för tipsfrågorna.
  */
 function updateTipsScore (score) {
   tipsScore = score

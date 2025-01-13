@@ -1,10 +1,11 @@
+/**
+ * Modul för logiken att återställa deltest som används i kmom10.js genom resetModule.js.
+ * - Återställer logik för deltest.
+ * @module kmom10/resetFunctions
+ */
+
 import * as tipsQuestions from './tipsQuestions.js'
 import { gameState, scoreState, selectedOrder } from './memory.js'
-/**
- * Module for logic of fizzBuzz used in the kmom10.js.
- * - Memory game logic.
- * @module kmom10/resetFunctions.js
- */
 /**
  * Återställer deltest 1 (Tipsfrågor quiz).
  * Den här funktionen döljer knappar, rensar innehållet i frågecontainern

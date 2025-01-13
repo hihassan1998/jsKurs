@@ -103,6 +103,7 @@ function checkAnswer (selectedOption) {
 
   if (isCorrect) {
     score += 3
+    updateTipsScore(score)
   }
   // Display feedback
   showFeedback(isCorrect, correctAnswer)
@@ -130,11 +131,29 @@ function showScore () {
 function restartQuiz () {
   currentQuestionIndex = 0
   score = 0
+  tipsScore = 0 // for cheat code
   questionContainer.classList.remove('hidden')
   scoreContainer.classList.add('hidden')
+  questionContainer.innerHTML = ''
   loadQuestions()
 }
 
 nextButton.addEventListener('click', moveToNextQuestion)
+let tipsScore = 0
 
+/**
+ * Updates the score for the tipsquestions game.
+ * This function sets the value of the global tipsquestions variable to the given score.
+ * @param {number} score - The new score to set for the FizzBuzz game.
+ */
+function updateTipsScore (score) {
+  tipsScore = score
+}
+
+// Export the score and the update function
+export { tipsScore, updateTipsScore }
 export { displayQuestion, loadQuestions, checkAnswer, restartQuiz }
+export {
+  questionContainer,
+  feedbackContainer
+}

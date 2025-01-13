@@ -35,22 +35,33 @@ function startMemoryTest (memoryGrid, imageNamesList, statusDisplay, nextTestLin
 }
 
 let gameOver = false
-
+/**
+ * Hanterar spelarens gissningar och kontrollerar om de är korrekta i relation till den rätta ordningen.
+ * Funktionen lägger till den valda bilden i spelarens ordning och kontrollerar om gissningen matchar rätt ordning. Om gissningen är korrekt avslöjas den motsvarande bilden och spelarens poäng ökar
+ * Om alla bilder har valts korrekt avslutas spelet, annars avslutas spelet vid fel gissning.
+ * @param {string} name - Namnet på den valda bilden som spelaren klickade på.
+ * @param {HTMLElement} memoryGrid - Rutnätselementet där bilderna ska avslöjas.
+ * @param {HTMLElement} statusDisplay - Elementet där spelets statusmeddelanden (t.ex. testets resultat) visas.
+ * @param {HTMLElement} nextTestLink - Länk för att gå vidare till nästa test efter att spelet är slut.
+ * @param {Array} images - Lista över bildobjekt som innehåller bildens sökväg och ID.
+ */
 function handleGuess (name, memoryGrid, statusDisplay, nextTestLink, images) {
   if (gameOver) {
     console.log('disableSelectableButton')
-    return // Prevent further guesses if the game is over
+    return
   }
 
-  selectedOrder.push(name) // Add the clicked name to selectedOrder
-  const nameOccurrences = selectedOrder.filter(n => n === name).length // Count how many times this name has been selected
+  selectedOrder.push(name)
 
-  console.log('User selected order:', selectedOrder) // Log user selected order
-  console.log('Correct order:', correctOrder) // Log correct order
+  // Count how many times this name has been selected
+  const nameOccurrences = selectedOrder.filter(n => n === name).length
+  console.log('User selected order:', selectedOrder)
+  console.log('Correct order:', correctOrder)
   console.log(`Name occurrences for ${name}:`, nameOccurrences)
 
   // Check if the user selected the correct name at the correct index
-  const currentIndex = selectedOrder.length - 1 // The index of the most recent guess
+  const currentIndex = selectedOrder.length - 1
+  const scoreBtn = document.getElementById('scoreBtn')
 
   // If the selected name matches the name in the correct order at the current index
   if (selectedOrder[currentIndex] === correctOrder[currentIndex]) {
@@ -64,6 +75,7 @@ function handleGuess (name, memoryGrid, statusDisplay, nextTestLink, images) {
     if (selectedImage) {
       revealImage(memoryGrid, selectedImage.id, selectedImage.name) // Reveal image if the order is correct
       score++ // Increase score for correct guess
+      updateMemoryScore(score)
     }
 
     // If all images have been selected in the correct order, end the game
@@ -71,12 +83,15 @@ function handleGuess (name, memoryGrid, statusDisplay, nextTestLink, images) {
       statusDisplay.textContent = `Test över! Poäng: ${score}`
       nextTestLink.classList.remove('hidden') // Show next test link
       gameOver = true // Set gameOver to true to stop further interactions
+
+      scoreBtn.classList.remove('hidden')
     }
   } else {
     // If the selected name does not match the correct name at the current index, stop the game
     statusDisplay.textContent = `Fel! Test över. Poäng: ${score}`
     nextTestLink.classList.remove('hidden') // Show next test link
     gameOver = true // Set gameOver to true to stop further interactions
+    scoreBtn.classList.remove('hidden')
   }
 }
 
@@ -205,7 +220,6 @@ function simpleShuffle (array) {
   const shuffled = [...array]
   for (let i = 0; i < shuffled.length; i++) {
     const randomIndex = Math.floor(Math.random() * shuffled.length);
-    // Swap elements
     [shuffled[i], shuffled[randomIndex]] = [shuffled[randomIndex], shuffled[i]]
   }
   return shuffled
@@ -220,3 +234,16 @@ function getImageNameFromPath (path) {
   // Extract the filename from the path and remove the file extension
   return path.split('/').pop().split('.')[0]
 }
+let memoryScore = 0
+
+/**
+ * Updates the score for the Memory game.
+ * This function sets the value of the global Memory variable to the given score.
+ * @param {number} score - The new global score to set for the Memory game.
+ */
+function updateMemoryScore (score) {
+  memoryScore = score
+}
+
+// Export the score and the update function
+export { memoryScore, updateMemoryScore }

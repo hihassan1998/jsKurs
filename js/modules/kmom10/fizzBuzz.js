@@ -96,6 +96,7 @@ export function checkAnswer (userAnswer, questionElement, answerButtonsContainer
   }
   // Update the score and show feedback
   questionElement.textContent = `Your score: ${score}`
+  updateFizzBuzzScore(score)
   // console.log(nextTestLink)
   feedbackContainer.classList.remove('hidden')
 
@@ -123,3 +124,17 @@ export function startFizzBuzz (startValue) {
   fizzBuzzSequence = generateFizzBuzzSequence(startValue)
   displayFizzBuzzQuestion(document.getElementById('fizzbuzz-question'), document.getElementById('answerButtonsContainer'))
 }
+
+let fizzBuzzScore = 0
+
+/**
+ * Updates the score for the FizzBuzz game.
+ * This function sets the value of the global fizzBuzzScore variable to the given score.
+ * @param {number} score - The new global score to set for the FizzBuzz game.
+ */
+function updateFizzBuzzScore (score) {
+  fizzBuzzScore = score
+}
+
+// Export the score and the update function
+export { fizzBuzzScore, updateFizzBuzzScore }

@@ -7,10 +7,12 @@
  * @property {module:kmom10/fizzBuzz} fizzBuzz Tillhandahåller funktionalitet för att hantera ordlistan.
  */
 import * as tipsQuestions from './modules/kmom10/tipsQuestions.js'
-import { loadQuestions } from './modules/kmom10/tipsQuestions.js'
-import { displayFizzBuzzQuestion, checkAnswer, startFizzBuzz } from './modules/kmom10/fizzBuzz.js'
-import { showDeltest, showStartMenu, startFizzBuzzForDeltest2 } from './modules/kmom10/functions.js'
-import { startMemoryTest } from './modules/kmom10/memory.js'
+import { loadQuestions, tipsScore } from './modules/kmom10/tipsQuestions.js'
+import { displayFizzBuzzQuestion, checkAnswer, startFizzBuzz, fizzBuzzScore } from './modules/kmom10/fizzBuzz.js'
+import { showDeltest, showStartMenu, startFizzBuzzForDeltest2, displayScore } from './modules/kmom10/functions.js'
+import { startMemoryTest, memoryScore } from './modules/kmom10/memory.js'
+
+import '././modules/kmom10/resetModule.js'
 // All the deltest divs
 const deltest1 = document.getElementById('deltest1')
 const deltest2 = document.getElementById('deltest2')
@@ -155,6 +157,7 @@ document.addEventListener('DOMContentLoaded', () => {
   nextTestLink.addEventListener('click', () => {
     console.log('Deltest 2 completed. Moving to Deltest 3.')
     showDeltest(deltest3)
+    startMemoryTest(memoryGrid, imageNamesList, statusDisplay, nextTestLink)
   })
   // Start test eventlistner
   startMemoryTestButton.addEventListener('click', () => {
@@ -174,6 +177,13 @@ document.addEventListener('DOMContentLoaded', () => {
   } else {
     console.error('Start Memory Test button not found!')
   }
+  const scoreBtn = document.getElementById('scoreBtn')
+  const scoreDisplay = document.getElementById('scoreDisplay')
+  scoreBtn.addEventListener('click', () => {
+    scoreDisplay.classList.remove('hidden')
+    const totalScore = tipsScore + fizzBuzzScore + memoryScore
+    displayScore(totalScore)
+  })
 })
 
 export {

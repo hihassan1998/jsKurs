@@ -7,7 +7,10 @@ import { IMAGE_PATHS, MEMORY_TEST_DURATION, MAX_IMAGE_OCCURRENCES } from './cons
 
 const selectedOrder = []
 let correctOrder = []
-let score = 0
+// let score = 0
+const scoreState = {
+  score: 0
+}
 /**
  * Startar minnestestet genom att visa bilder i slumpmässig ordning och sedan dölja dem.
  * Testpersonen ska sedan välja bilder i rätt ordning baserat på bildnamnen.
@@ -33,8 +36,11 @@ function startMemoryTest (memoryGrid, imageNamesList, statusDisplay, nextTestLin
     statusDisplay.textContent = 'Välj frukter i rätt ordning!'
   }, MEMORY_TEST_DURATION)
 }
-
-let gameOver = false
+const gameState = {
+  gameOver: false
+}
+// let gameOver = false
+gameState.gameOver = false
 /**
  * Hanterar spelarens gissningar och kontrollerar om de är korrekta i relation till den rätta ordningen.
  * Funktionen lägger till den valda bilden i spelarens ordning och kontrollerar om gissningen matchar rätt ordning. Om gissningen är korrekt avslöjas den motsvarande bilden och spelarens poäng ökar
@@ -46,7 +52,7 @@ let gameOver = false
  * @param {Array} images - Lista över bildobjekt som innehåller bildens sökväg och ID.
  */
 function handleGuess (name, memoryGrid, statusDisplay, nextTestLink, images) {
-  if (gameOver) {
+  if (gameState.gameOver) {
     console.log('disableSelectableButton')
     return
   }
@@ -74,23 +80,23 @@ function handleGuess (name, memoryGrid, statusDisplay, nextTestLink, images) {
     // Ensure the image exists before attempting to reveal it
     if (selectedImage) {
       revealImage(memoryGrid, selectedImage.id, selectedImage.name) // Reveal image if the order is correct
-      score++ // Increase score for correct guess
-      updateMemoryScore(score)
+      scoreState.score++ // Increase score for correct guess
+      updateMemoryScore(scoreState.score)
     }
 
     // If all images have been selected in the correct order, end the game
     if (selectedOrder.length === correctOrder.length) {
-      statusDisplay.textContent = `Test över! Poäng: ${score}`
+      statusDisplay.textContent = `Test över! Poäng: ${scoreState.score}`
       nextTestLink.classList.remove('hidden') // Show next test link
-      gameOver = true // Set gameOver to true to stop further interactions
+      gameState.gameOver = true
 
       scoreBtn.classList.remove('hidden')
     }
   } else {
     // If the selected name does not match the correct name at the current index, stop the game
-    statusDisplay.textContent = `Fel! Test över. Poäng: ${score}`
-    nextTestLink.classList.remove('hidden') // Show next test link
-    gameOver = true // Set gameOver to true to stop further interactions
+    statusDisplay.textContent = `Fel! Test över. Poäng: ${scoreState.score}`
+    nextTestLink.classList.remove('hidden')
+    gameState.gameOver = true
     scoreBtn.classList.remove('hidden')
   }
 }
@@ -246,4 +252,4 @@ function updateMemoryScore (score) {
 }
 
 // Export the score and the update function
-export { memoryScore, updateMemoryScore }
+export { memoryScore, updateMemoryScore, selectedOrder, gameState, scoreState }

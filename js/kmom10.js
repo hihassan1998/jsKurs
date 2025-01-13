@@ -104,6 +104,8 @@ document.addEventListener('DOMContentLoaded', () => {
         // Oppt
       } else if (deltest3.classList.contains('active-tst')) {
         console.log('Deltest 3 is active. Restarting Deltest 3.')
+        startMemoryTestButton.classList.add('hidden')
+        showDeltest(deltest3)
       } else {
         console.log('No active deltest to restart.')
       }
@@ -156,6 +158,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // nextTestBtn - event listner
   nextTestLink.addEventListener('click', () => {
     console.log('Deltest 2 completed. Moving to Deltest 3.')
+    deltest2.classList.remove('active-tst')
+    // deltest3.classList.add('active-tst')
     showDeltest(deltest3)
     startMemoryTest(memoryGrid, imageNamesList, statusDisplay, nextTestLink)
   })
@@ -167,6 +171,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const deltest3Button = document.querySelector('[data-target="deltest3"]')
   deltest3Button.addEventListener('click', () => {
     startMemoryTestButton.classList.remove('hidden')
+    // deltest2.classList.remove('active-tst')
+    // deltest3.classList.add('active-tst')
     showDeltest(deltest3)
   })
 

@@ -150,7 +150,6 @@ function updateTipsScore (score) {
   tipsScore = score
 }
 
-// Export the score and the update function
 export { tipsScore, updateTipsScore }
 export { displayQuestion, loadQuestions, checkAnswer, restartQuiz }
 export {

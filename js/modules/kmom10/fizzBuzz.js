@@ -1,7 +1,9 @@
-// fizzBuzz.js
-
+/**
+ * Module for logic of fizzBuzz used in the kmom10.js.
+ * - Memory game logic.
+ * @module kmom10/fizzBuzz.js
+ */
 let currentIndex = [] // To store the current FizzBuzz sequence
-// let currentAnswer = null // Store the correct answer for the next number in the sequence
 let score = 0 // Initialize score
 let fizzBuzzSequence = []
 /**
@@ -9,7 +11,7 @@ let fizzBuzzSequence = []
  * @param {number} start - The starting value for the FizzBuzz sequence.
  * @returns {Array} The generated FizzBuzz sequence.
  */
-export function generateFizzBuzzSequence (start) {
+function generateFizzBuzzSequence (start) {
   const sequence = []
   for (let i = start; i < start + 7; i++) {
     if (i % 3 === 0 && i % 5 === 0) {
@@ -30,7 +32,7 @@ export function generateFizzBuzzSequence (start) {
  * @param {HTMLElement} questionElement - The HTML element where the question will be displayed.
  * @param {NodeList} answerButtonsContainer - The buttons where the answer choices will be displayed.
  */
-export function displayFizzBuzzQuestion (questionElement, answerButtonsContainer) {
+function displayFizzBuzzQuestion (questionElement, answerButtonsContainer) {
   const sequence = fizzBuzzSequence.slice(0, currentIndex).join(', ')
   questionElement.textContent = `${sequence}, ?`
 
@@ -70,15 +72,13 @@ function generateFakeAnswers (correctAnswer) {
   }
   return fakeAnswers
 }
-
 /**
  * Checks the user's answer and updates the score or provides feedback.
  * @param {string|number} userAnswer - The user's selected answer.
  * @param {HTMLElement} questionElement - The question element where feedback is shown.
  * @param {NodeList} answerButtonsContainer - The container where the answer buttons are displayed.
- * @param {HTMLElement} nextTestLink - Link to the next test.
  */
-export function checkAnswer (userAnswer, questionElement, answerButtonsContainer, nextTestLink) {
+function checkAnswer (userAnswer, questionElement, answerButtonsContainer) {
   const correctAnswer = fizzBuzzSequence[currentIndex]
   const feedbackContainer = document.getElementById('feedback')
 
@@ -94,22 +94,23 @@ export function checkAnswer (userAnswer, questionElement, answerButtonsContainer
   } else {
     feedbackContainer.textContent = `Incorrect. The correct answer was: ${correctAnswer}.`
   }
-  // Update the score and show feedback
+
   questionElement.textContent = `Your score: ${score}`
   updateFizzBuzzScore(score)
-  // console.log(nextTestLink)
   feedbackContainer.classList.remove('hidden')
 
   setTimeout(() => {
     feedbackContainer.classList.add('hidden')
     answerButtonsContainer.innerHTML = ''
     const nextTestBtn = document.getElementById('next-test-link')
-    // Prepare for the next question or finish
+
+    const startValue = Math.floor(Math.random() * 10) + 1
+    fizzBuzzSequence = generateFizzBuzzSequence(startValue)
+    // the next question or finish
     currentIndex++
     if (currentIndex < fizzBuzzSequence.length) {
       displayFizzBuzzQuestion(questionElement, answerButtonsContainer)
     } else {
-      // console.log(nextTestLink.classList)
       nextTestBtn.classList.remove('hidden')
     }
   }, 1000)
@@ -118,7 +119,7 @@ export function checkAnswer (userAnswer, questionElement, answerButtonsContainer
  * Starts the FizzBuzz test with a new random sequence.
  * @param {number} startValue - Random starting value for the sequence.
  */
-export function startFizzBuzz (startValue) {
+function startFizzBuzz (startValue) {
   score = 0
   currentIndex = 3
   fizzBuzzSequence = generateFizzBuzzSequence(startValue)
@@ -126,7 +127,6 @@ export function startFizzBuzz (startValue) {
 }
 
 let fizzBuzzScore = 0
-
 /**
  * Updates the score for the FizzBuzz game.
  * This function sets the value of the global fizzBuzzScore variable to the given score.
@@ -136,5 +136,4 @@ function updateFizzBuzzScore (score) {
   fizzBuzzScore = score
 }
 
-// Export the score and the update function
-export { fizzBuzzScore, updateFizzBuzzScore }
+export { generateFizzBuzzSequence, startFizzBuzz, displayFizzBuzzQuestion, fizzBuzzScore, checkAnswer, updateFizzBuzzScore }

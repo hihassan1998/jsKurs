@@ -1,4 +1,10 @@
 import * as tipsQuestions from './tipsQuestions.js'
+import { gameState, scoreState, selectedOrder } from './memory.js'
+/**
+ * Module for logic of fizzBuzz used in the kmom10.js.
+ * - Memory game logic.
+ * @module kmom10/resetFunctions.js
+ */
 /**
  * Återställer deltest 1 (Tipsfrågor quiz).
  * Den här funktionen döljer knappar, rensar innehållet i frågecontainern
@@ -7,22 +13,47 @@ import * as tipsQuestions from './tipsQuestions.js'
 function resetDeltest1 () {
   // Reset logic for deltest1 (Tipsfrågor quiz)
   console.log('Resetting Deltest 1...')
-  // Reset your score, questions, UI elements for deltest1 here
   const nextButton = document.getElementById('next-button')
   nextButton.classList.add('hidden')
   tipsQuestions.questionContainer.innerHTML = ''
   tipsQuestions.feedbackContainer.classList.add('hidden')
 }
-
+/**
+ * Återställer deltest 2 (fizzbuzz test).
+ * Den här funktionen döljer knappar, rensar innehållet i frågecontainern
+ * och gömmer feedbackcontainern för att förbereda deltestet för en omstart.
+ */
 function resetDeltest2 () {
   // Reset logic for deltest2 (FizzBuzz)
   console.log('Resetting Deltest 2...')
-  // Reset your score, questions, UI elements for deltest2 here
 }
+/**
+ * Återställer deltest 3 (memory test).
+ * Den här funktionen döljer föregåndeinehåll, rensar bilder från grid
+ * och gömmer feedbackcontainern för att förbereda deltestet för en omstart.
+ */
 function resetDeltest3 () {
-// Reset logic for deltest3 (Oppt)
+// Reset logic for deltest3
+  const startMemoryTestButton = document.getElementById('start-memory-test')
+  const scoreDisplay = document.getElementById('scoreDisplay')
+  const memoryGrid = document.getElementById('memory-grid')
+  const statusDisplay = document.getElementById('memory-status')
+
+  startMemoryTestButton.classList.add('hidden')
+
+  memoryGrid.innerHTML = ''
+  statusDisplay.innerHTML = ''
+  scoreDisplay.innerHTML = ''
+
+  scoreState.score = 0
+  scoreDisplay.classList.add('hidden')
+
+  selectedOrder.length = 0
+  console.log('User input array reset:', selectedOrder)
+
+  gameState.gameOver = false
+
   console.log('Resetting Deltest 3...')
-// Reset your score, questions, UI elements for deltest3 here
 }
 
 export {

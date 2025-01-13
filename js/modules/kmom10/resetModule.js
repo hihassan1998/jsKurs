@@ -7,9 +7,9 @@ import {
 import * as tipsQuestions from './tipsQuestions.js'
 import { displayFizzBuzzQuestion, startFizzBuzz } from './fizzBuzz.js'
 import { showDeltest } from './functions.js'
-import { startMemoryTest, selectedOrder, gameState, scoreState } from './memory.js'
+import { startMemoryTest } from './memory.js'
 
-// Global reset function available in window object
+// Global reset function for kmo10.js
 window.reset = function () {
   const activeDeltest = document.querySelector('.deltest.active-tst')
 
@@ -21,6 +21,7 @@ window.reset = function () {
       resetDeltest1()
     } else if (deltest2.classList.contains('active-tst')) {
       // Deltest 2 - FizzBuzz
+
       console.log('Deltest 2 is active. Restarting Deltest 2 and resetting.')
       const questionElement = document.getElementById('fizzbuzz-question')
       const answerButtons = document.getElementById('answerButtonsContainer')
@@ -32,33 +33,17 @@ window.reset = function () {
       resetDeltest2()
     } else if (deltest3.classList.contains('active-tst')) {
       // Deltest 3 - Memory
-      const startMemoryTestButton = document.getElementById('start-memory-test')
-      const memoryGrid = document.getElementById('memory-grid')
-      const imageNamesList = document.getElementById('image-names')
-      const statusDisplay = document.getElementById('memory-status')
-      const nextTestLink = document.getElementById('next-test-link')
-      const scoreDisplay = document.getElementById('scoreDisplay')
+
       console.log('Deltest 3 is active. Restarting Deltest 3 and resetting.')
+      const memoryGrid = document.getElementById('memory-grid')
+      const statusDisplay = document.getElementById('memory-status')
+      const imageNamesList = document.getElementById('image-names')
+      const nextTestLink = document.getElementById('next-test-link')
 
-      startMemoryTestButton.classList.add('hidden')
-
-      memoryGrid.innerHTML = ''
-      statusDisplay.innerHTML = ''
-      scoreDisplay.innerHTML = ''
-
-      scoreState.score = 0
-      scoreDisplay.classList.add('hidden')
-
-      selectedOrder.length = 0
-      console.log('User input array reset:', selectedOrder)
-
-      gameState.gameOver = false
-
+      resetDeltest3()
       showDeltest(deltest3)
       memoryGrid.classList.add('hidden')
       startMemoryTest(memoryGrid, imageNamesList, statusDisplay, nextTestLink)
-
-      resetDeltest3()
     } else {
       console.log('No active deltest to restart and reset.')
     }

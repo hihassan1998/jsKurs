@@ -553,6 +553,17 @@ ol#image-names {
     display: flex;
     flex-direction: column;
 }
+.pictureName{
+font-size: 1.5rem;
+
+}
+.pictureName:hover {
+    cursor: pointer;
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: #f9c710;
+
+}
 .revealed-image {
     width: 80px;
     height: 80px;
@@ -571,4 +582,5 @@ div#scoreDisplay {
     word-break: break-word;
     font-size: 1.8rem !important;
 }
+
 /* kmom10 styling ends */

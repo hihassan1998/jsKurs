@@ -53,7 +53,9 @@ function startFizzBuzzForDeltest2 () {
   displayFizzBuzzQuestion(questionElement, document.getElementById('answerButtonsContainer'))
   showDeltest(deltest2)
 }
-// Function to display the score
+/**
+ * Function to display the score
+ */
 function displayScore(score) {
   const scoreDisplay = document.getElementById('scoreDisplay')
   const percent = (score / 36) * 100

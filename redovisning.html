@@ -23,47 +23,159 @@
     </header>
     <div class="content">
         <div class="row">
-            <h1>Redovisning av kursmoment i kursen "Programmering med Javascript"</h1>
+            <h2>Redovisning av kursmoment10 i kursen "Programmering med Javascript"</h2>
         </div>
 
-        <div class="row">
-            <div class="column">
-                <div class="item">
-                    <h2>Under-arbete</h2>
-                    <p>Här kommer en sticky-possionerad scrollbart inehållsförteckning </p>
-                </div>
-            </div>
-            <div class="column">
-                <div class="item">
-                    <h2>Kmom01</h2>
-                    <p>Här är redovisningstexten</p>
-                </div>
-                <div class="item">
-                    <h2>Kmom02</h2>
-                    <p>Här är redovisningstexten</p>
-                </div>
-                <div class="item">
-                    <h2>Kmom03</h2>
-                    <p>Här är redovisningstexten</p>
-                </div>
-                <div class="item">
-                    <h2>Kmom04</h2>
-                    <p>Här är redovisningstexten</p>
-                </div>
-                <div class="item">
-                    <h2>Kmom05</h2>
-                    <p>Här är redovisningstexten</p>
-                </div>
-                <div class="item">
-                    <h2>Kmom06</h2>
-                    <p>Här är redovisningstexten</p>
-                </div>
-                <div class="item">
-                    <h2>Kmom10</h2>
-                    <p>Här är redovisningstexten</p>
-                </div>
+        <!-- <div class="row"> -->
+        <div class="column">
+            <div class="item">
+                <br><br>
+                <h3>Deltest 1 - Tipsfrågor:</h3>
+                <p>
+                    <br>
+                    <!-- This test starts by the help of loadQuestions() funtion which is an async function that awaits the
+                    fetching of data from the data file named questions.json, which holds the questions, answers and
+                    options to the test. Then, displayQuestion() is used to display questions and the valid and invalid
+                    options, with a disable feature connected to the buttons that disables the buttons after the user
+                    has selected an option. The showFeedback(isCorrect, correctAnswer) function shows feedback after
+                    answering a question, and a "next" button appears to let the user go to the next question with the
+                    help of moveToNextQuestion() after guessing. The showScore() function displays the total score
+                    attained after the test ends, and a button to restart the test appears, as well as a button to go to
+                    the next test. -->
+
+                    Detta test startar med hjälp av loadQuestions()-funktionen som är en asynkronfunktion som väntar
+                    på hämtning av data från datafilen som heter question.json, som innehåller frågorna, svaren och
+                    alternativ på prov. Sedan används displayQuestion() för att visa frågor och de giltiga och ogiltiga
+                    alternativ, med en inaktiveringsfunktion kopplad till knapparna som inaktiverar knapparna efter
+                    användaren
+                    har valt ett alternativ. Funktionen showFeedback(ärKorrekt, korrektSvar) visar feedback efter
+                    svarar på en fråga, och en "nästa"-knapp visas för att låta användaren gå till nästa fråga med
+                    hjälp av moveToNextQuestion() efter gissning. Funktionen showScore() visar totalpoängen
+                    uppnås efter att testet avslutats, och en knapp för att starta om testet visas, samt en knapp för
+                    att gå till
+                    nästa test.
+
+                    <br><br>
+
+                <h3>Deltest 2 - FizzBuzz:</h3>
+                <p>
+                    <br>
+                    <!-- this test is set up using The function startFizzBuzz(startValue) to start the test with a random
+                    startValue. The generateFizzBuzzSequence(start) function is used to generate a random FIZZBUZZ
+                    sequence using the classical FizzBuzz rules. The questions are displayed dynamically with the help
+                    of displayFizzBuzzQuestion(questionElement, answerButtonsContainer), which asks the player to choose
+                    from a set of possible answers and fill in the sequence with the right answer buttons. The
+                    checkAnswer(userAnswer, questionElement, answerButtonsContainer) checks the user's selected answers,
+                    disables buttons after pressing, updates the next random sequence, and updates the score if
+                    applicable in that round of questions -->
+                    Detta test startar med funktionen startFizzBuzz(startValue) för att starta testet slumpmässigt
+                    startVärde. GenereraFizzBuzzSequence(start)-funktionen används för att generera en slumpmässig
+                    FIZZBUZZ
+                    sekvens med de klassiska FizzBuzz-reglerna. Frågorna visas dynamiskt med hjälpen
+                    av displayFizzBuzzQuestion(questionElement, answerButtonsContainer), som ber spelaren att välja
+                    från en uppsättning möjliga svar och fyll i sekvensen med rätt svarsknappar. De
+                    checkAnswer(userAnswer, questionElement, answerButtonsContainer) kontrollerar användarens valda
+                    svar,
+                    inaktiverar knappar efter tryckning, uppdaterar nästa slumpmässiga sekvens och uppdaterar poängen om
+                    tillämpliga i den frågeomgången.
+                </p>
+
+                <br><br>
+
+                <h3>Deltest 3 - Memory:</h3>
+                <p>
+                    <br>
+                    <!-- This test is set up using the function startMemoryTest(memoryGrid, imageNamesList, statusDisplay),
+                    which starts the test by randomly arranging the images and hiding them after a set timer of 5
+                    seconds with the help of displayImages(grid, images). Later, the names of the images are displayed
+                    with the help of displayImageNames(list, images, memoryGrid, statusDisplay), and the user can select
+                    the correct image name according to the sequence. This is handled by the handleGuess(name,
+                    memoryGrid, statusDisplay, images) function, which compares the user's selected names with the
+                    correct sequence of images in the memory grid. With the help of revealImage(grid, index, imageSrc),
+                    the correct images in the correct sequence are revealed as soon as the user selects the correct
+                    image name from the list provided. -->
+                    Detta test startar med funktionen startMemoryTest(memoryGrid, imageNamesList, statusDisplay),
+                    vilket startar testet genom att slumpmässigt ordna bilderna och dölja dem efter en inställd timer på
+                    5 sekunder med hjälp av displayImages(grid, images). Senare visas namnen på bilderna
+                    med hjälp av displayImageNames(lista, bilder, memoryGrid, statusDisplay), och användaren kan välja
+                    rätt bildnamn enligt sekvensen. Detta hanteras av handleGuess(namn,
+                    memoryGrid, statusDisplay, images) funktion, som jämför användarens valda namn med
+                    korrekt sekvens av bilder i minnesrutnätet. Med hjälp av revealImage(grid, index, imageSrc),
+                    de korrekta bilderna i rätt sekvens avslöjas så snart användaren väljer rätt
+                    bildnamnet från listan som tillhandahålls
+                </p>
+
+                <br><br>
+
+                <h3>Projekts genomförande</h3>
+                <p>
+                    <br>
+                    <!-- I tried to use the minimum amount of static HTML code in the project, and I think I succeeded in
+                    this challenging task by rendering most of the HTML page dynamically. -->
+                    Jag försökte använda den minsta mängden statisk HTML-kod i projektet, och jag tror att jag lyckades
+                    med det denna utmanande uppgift genom att rendera större delen av HTML-sidan dynamiskt.
+                    <br>
+                    <br>
+                    <!-- A major challenge was hiding the memory grid of images. Initially, I tried CSS-based solutions, but
+                    using setTimeout made it smoother to hide the images at the right time and reveal them one by one
+                    when users selected the correct names in order. -->
+                    En stor utmaning var att dölja bildernas minnesrutnät. Till en början provade jag CSS-baserade
+                    lösningar, men att använda setTimeout gjorde det smidigare att dölja bilderna vid rätt tidpunkt och
+                    avslöja dem en efter en när användare valt rätt namn i ordning.
+                    <br>
+                    <br>
+
+                    <!-- Initially, I updated the score individually for each test, but I later implemented global functions
+                    to track and calculate scores across all tests. This modularized approach allowed for displaying the
+                    final score using an intelligence formula. -->
+                    Till en början uppdaterade jag poängen individuellt för varje test, men jag implementerade senare
+                    globala funktioner för att spåra och beräkna poäng för alla tester. Detta modulariserade
+                    tillvägagångssätt gjorde det möjligt att visa slutresultat med hjälp av en intelligensformel.
+                    <br>
+                    <br>
+
+                    <!-- The reset module was created as a global module with reset functions for individual tests. Using the
+                    'active-test' class with document.querySelector, I identified the active test and reset its logic,
+                    enabling users to retry for higher scores. -->
+                    Återställningsmodulen skapades som en global modul med återställningsfunktioner för individuella
+                    tester. Med hjälp av 'active-test'-klassen med document.querySelector, identifierade jag det aktiva
+                    testet och återställde dess logik, gör det möjligt för användare att försöka igen för högre poäng.
+                    <br>
+                    <br>
+
+                    <!-- Intelligence calculations are based on the total achievable score and the user’s attained score,
+                    displayed as both a raw value and a percentage for clarity. -->
+                    Intelligensberäkningar är baserade på den totala uppnåbara poängen och användarens uppnådda poäng,
+                    visas som både ett råvärde och en procentsats för tydlighetens skull.
+                    <br>
+                    <br>
+
+                    <!-- I believe there are areas for improvement, especially in the logic of the memory test. For example,
+                    I could have used IDs and names associated with the images in the imported array of IMAGE_PATHS.
+                    Instead of cleaning the names from the paths, I could have added names from the constants and
+                    compared them with unique IDs, which would have been more efficient. However, I consider that I have
+                    learned both solutions, even though I have implemented only one of them. -->
+                    
+                    Jag tror att det finns förbättringsområden, särskilt i logiken i minnestestet. Till exempel,
+                    Jag kunde ha använt ID:n och namn associerade med bilderna i den importerade arrayen av IMAGE_PATHS.
+                    Istället för att rensa namnen från stigarna kunde jag ha lagt till namn från konstanterna och
+                    jämfört dem med unika ID, vilket skulle ha varit mer effektivt. Det anser jag dock att jag har
+                    lärt mig båda lösningarna, även om jag bara har implementerat en av dem.
+
+                </p>
+
+                <br><br>
+
+                <h3>Tankar om kursen och materialet</h3>
+                <p>Kursen har varit lärorikt och materialet var tydligt och användbart.
+                    Det är ett bra koncept att kunna ta del av uppgifter genom kursens Git-repo på GitHub.
+                    Projekt uppgifterna var svåra, och studenter skulle uppskata om de var lite enklare för
+                    en bättre fördjupning i det vi lärt oss under kursen. Allmänt är jag nöjd med kursens/uppgifters
+                    upplägg och jag ger kursen 9/10 i betyg.
+                </p>
             </div>
         </div>
+        <!-- </div> -->
 
 
     </div>

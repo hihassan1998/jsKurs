@@ -1,8 +1,4 @@
-// export const IMAGE_PATHS = [
-//   { name: 'Apple', src: '../../../img/apple.jpg' },
-//   { name: 'Banana', src: '../../../img/banann.jpg' },
-//   { name: 'Orange', src: '../../../img/orange.jpg' },
-// ]
+// constant.js
 export const IMAGE_PATHS = [
   '../../../img/apple.jpg',
   '../../../img/banann.jpg',

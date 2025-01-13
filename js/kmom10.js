@@ -1,10 +1,11 @@
 /**
- * Huvudskript för Deltest 1, 2, eller (3,4,5).
+ * Huvudskript för Deltest 1, 2 och/eller (3,4,5).
  * - Hanterar spelets logik och uppdaterar UI.
- * - Använder moduler för att visa och uppdatera deltestarna.
+ * - Använder moduler för att visa och uppdatera deltestarna och minipulterar DOM.
  * @namespace kmom10
  * @property {module:kmom10/tipsQuestions} tipsQuestions Hanterar logiken för att tipsQuestions del 1.
  * @property {module:kmom10/fizzBuzz} fizzBuzz Tillhandahåller funktionalitet för att hantera ordlistan.
+ * @property {module:kmom10/memory} memory Tillhandahåller funktionalitet för att hantera ordlistan.
  */
 import * as tipsQuestions from './modules/kmom10/tipsQuestions.js'
 import { loadQuestions, tipsScore } from './modules/kmom10/tipsQuestions.js'
@@ -38,7 +39,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const memoryGrid = document.getElementById('memory-grid')
   const imageNamesList = document.getElementById('image-names')
   const statusDisplay = document.getElementById('memory-status')
-  // const nextTestLink = document.getElementById('next-test-link-3');
   // Show test menu on Start button click
   startButton.addEventListener('click', () => {
     startMenu.classList.add('hidden')
@@ -58,10 +58,10 @@ document.addEventListener('DOMContentLoaded', () => {
       if (activeDeltest) {
         activeDeltest.classList.add('active-tst')
         testMenu.classList.add('hidden')
-        console.log(`Active test set to: ${target}`) // Log the active test being set
+        console.log(`Active test set to: ${target}`)
         if (target === 'deltest1' && !questionsLoaded) {
           questionsLoaded = true
-          tipsQuestions.loadQuestions() // Load the questions for Tipsfrågor
+          tipsQuestions.loadQuestions()
         }
       }
     })
@@ -100,8 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log('Deltest 2 is active. Restarting Deltest 2.')
 
         // Deltest 3
-        // Fizzbuzz
-        // Oppt
+        // Memory
       } else if (deltest3.classList.contains('active-tst')) {
         console.log('Deltest 3 is active. Restarting Deltest 3.')
         startMemoryTestButton.classList.add('hidden')
@@ -137,7 +136,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (event.target.classList.contains('fizzsbuzz-answer')) {
       const userAnswer = event.target.textContent
       console.log(`User selected answer: ${userAnswer}`) // Log the selected answer
-      checkAnswer(userAnswer, questionElement, document.getElementById('answerButtonsContainer'), nextTestLink)
+      checkAnswer(userAnswer, questionElement, document.getElementById('answerButtonsContainer'))
     }
   })
 
@@ -161,7 +160,7 @@ document.addEventListener('DOMContentLoaded', () => {
     deltest2.classList.remove('active-tst')
     // deltest3.classList.add('active-tst')
     showDeltest(deltest3)
-    startMemoryTest(memoryGrid, imageNamesList, statusDisplay, nextTestLink)
+    startMemoryTest(memoryGrid, imageNamesList, statusDisplay)
   })
   // Start test eventlistner
   startMemoryTestButton.addEventListener('click', () => {
@@ -176,13 +175,10 @@ document.addEventListener('DOMContentLoaded', () => {
     showDeltest(deltest3)
   })
 
-  if (startMemoryTestButton) {
-    startMemoryTestButton.addEventListener('click', () => {
-      startMemoryTest(memoryGrid, imageNamesList, statusDisplay, nextTestLink)
-    })
-  } else {
-    console.error('Start Memory Test button not found!')
-  }
+  startMemoryTestButton.addEventListener('click', () => {
+    startMemoryTest(memoryGrid, imageNamesList, statusDisplay)
+  })
+
   const scoreBtn = document.getElementById('scoreBtn')
   const scoreDisplay = document.getElementById('scoreDisplay')
   scoreBtn.addEventListener('click', () => {
